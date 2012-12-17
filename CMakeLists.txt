@@ -1,3 +1,13 @@
+cmake_minimum_required( VERSION 2.6 )
+project( OclDeepLearning )
+
+set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
+
+find_package( OpenCL REQUIRED )
+
+include_directories( ${OPENCL_INCLUDE_DIRS} )
+
+
 add_subdirectory(include)
 add_subdirectory(lib)
 add_subdirectory(test)
