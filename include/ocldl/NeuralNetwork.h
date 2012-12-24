@@ -11,6 +11,8 @@
 #ifndef OCLDL_NEURALNETWORK_H
 #define OCLDL_NEURALNETWORK_H
 
+#include <vector>
+
 namespace ocldl {
 
 class NeuralNetwork {
@@ -19,6 +21,18 @@ private:
 public:
   NeuralNetwork() { }
   virtual ~NeuralNetwork();
+
+  /// @brief Train the network.
+  ///
+  /// @param Input         Inputs of the training examples.
+  /// @param TargetOutput  Target outputs of the training examples.
+  void train(const std::vector<double>& Input,
+             const std::vector<double>& TargetOutput);
+
+  /// @brief Get the mean squared error.
+  ///
+  /// @return Value of the mean squared error.
+  double getMSE() const;
 };
 
 } // End ocldl namespace
